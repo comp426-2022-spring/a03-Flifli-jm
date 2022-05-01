@@ -52,14 +52,6 @@ app.get("/app/", (req, res) => {
   res.status(200).json("200 OK");
 });
 
-app.get("/app/", (req,res) => {
-    // Respond with status 200
-    res.statusCode = 200
-    // Respond with status message "OK"
-    res.statusMessage = 'OK';
-    res.writeHead(res.statusCode, {'Content-Type' : 'text/plain'});
-    res.end(res.statusCode + ' ' + res.statusMessage)
-})
 
 app.get("/app/flip/", (req, res) => {
     var flip = coinFlip()
