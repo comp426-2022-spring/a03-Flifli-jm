@@ -1,6 +1,7 @@
-const express = require('express')
+const express = require("express")
 const app = express();
 
+const minimist = require('minimist')
 const args = minimist(process.argv.slice(2));
 
 const HTTP_PORT = args["port"] || 5000;
@@ -9,7 +10,7 @@ const HTTP_PORT = args["port"] || 5000;
 function coinFlip() {
     return ((Math.floor(Math.random() * 2)) == 0) ? ("heads") : ("tails") ;
   
-  }
+}
   
 function coinFlips(flips) {
     let ans = new Array();
