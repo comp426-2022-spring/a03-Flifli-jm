@@ -52,16 +52,21 @@ app.get("/app/", (req, res) => {
 });
 
 app.get("/app/", (req,res) => {
+    // Respond with status 200
     res.statusCode = 200
-    res.statusMessage = "ok"
-    res.writeHead(res.statusCode, {"Content-Type": "text/plain"})
-    res.end(res.statusCode + " " + res.statusMessage)
+    // Respond with status message "OK"
+    res.statusMessage = 'OK';
+    res.writeHead(res.statusCode, {'Content-Type' : 'text/plain'});
+    res.end(res.statusCode + ' ' + res.statusMessage)
 })
 
 app.get("/app/flip/", (req, res) => {
     var flip = coinFlip()
-    return res.status(200).json({"flip" : flip})
+    return res.status(200).json({
+        "flip" : coinFlip()
+    })
 })
+
 
 app.get('/app/flips/:number', (req, res) => {
     const raw = coinFlips(req.params.number);
@@ -73,6 +78,7 @@ app.get('/app/flips/:number', (req, res) => {
 });
 
 
+
 app.get("/app/flip/call/heads", (req, res) => {
     return res.status(200).json(flipACoin("heads"))
 })
@@ -80,6 +86,7 @@ app.get("/app/flip/call/heads", (req, res) => {
 app.get("/app/flip/call/tails", (req, res) => {
     return res.status(200).json(flipACoin("tails"))
 })
+
 app.use(function(req, res){
     res.status(404).send("404 NOT FOUND")
 })
