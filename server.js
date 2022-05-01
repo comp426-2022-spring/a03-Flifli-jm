@@ -1,5 +1,3 @@
-import { coinFlip, coinFlips, countFlips, flipACoin } from "./coin.mjs";
-import minimist from "minimist";
 const express = require('express')
 const app = express();
 
